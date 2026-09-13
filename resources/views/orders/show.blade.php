@@ -26,7 +26,7 @@
                 {{-- Account info --}}
                 <section class="rounded-3xl bg-surface-container-low border border-outline-variant/20 p-5 flex gap-5 items-start">
                     @if($order->gameAccount?->images->first())
-                        <img src="{{ asset($order->gameAccount->images->first()->url) }}" alt="{{ $order->gameAccount->title }}" class="w-28 h-28 rounded-2xl object-cover shrink-0">
+                        <img src="{{ asset($order->gameAccount->images->first()->url()) }}" alt="{{ $order->gameAccount->title }}" class="w-28 h-28 rounded-2xl object-cover shrink-0">
                     @else
                         <div class="w-28 h-28 rounded-2xl bg-primary-container/30 flex items-center justify-center text-secondary shrink-0">
                             <x-game-icon :game="$order->gameAccount?->game" size="w-28 h-28" icon="text-5xl" />
