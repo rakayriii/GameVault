@@ -58,6 +58,8 @@ RUN mkdir -p \
     bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-ENV SERVER_NAME=:80
+COPY --from=frontend /app/public/build ./public/build
 
-CMD ["frankenphp", "php-server", "-r", "public"]
+ENV SERVER_NAME=80
+
+CMD ["sh", "-c", "frankenphp php-server --listen :${PORT} -r public"]
